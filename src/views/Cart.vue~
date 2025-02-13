@@ -1,0 +1,74 @@
+<template>
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+    <div v-if="cartItems.length > 0">
+      <div v-for="item in cartItems" :key="item.id" class="cart-item">
+        <img :src="item.image" :alt="item.name" class="cart-image" />
+        <div class="item-details">
+          <h3>{{ item.name }}</h3>
+          <p>Price: ${{ item.price }}</p>
+          <p>Quantity: {{ item.quantity }}</p>
+          <button @click="removeFromCart(item.id)">Remove</button>
+        </div>
+      </div>
+      <h2>Total: ${{ cartTotal }}</h2>
+    </div>
+    <p v-else>Your cart is empty.</p>
+  </div>
+</template>
+
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const cartItems = computed(() => store.getters["cart/cartItems"]);
+const cartTotal = computed(() => store.getters["cart/cartTotal"]);
+
+const removeFromCart = (productId) => {
+  store.dispatch("cart/removeFromCart", productId);
+};
+</script>
+
+<style scoped>
+h1 {
+  color: #fff;
+}
+.cart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.cart-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: darkred;
+}
+</style>

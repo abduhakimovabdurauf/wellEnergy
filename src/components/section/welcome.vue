@@ -1,0 +1,164 @@
+<template>
+  <div class="slider-wrapper">
+    <swiper
+        :modules="[Autoplay]"
+        :slides-per-view="1"
+        :loop="true"
+        :autoplay="{ delay: 4000, disableOnInteraction: false }"
+        class="home-slider"
+    >
+      <swiper-slide class="slide">
+        <img src="@/assets/slider/1.png" alt="Slide 1" />
+        <div class="overlay"></div>
+      </swiper-slide>
+      <swiper-slide class="slide">
+        <img src="@/assets/slider/2.png" alt="Slide 2" />
+        <div class="overlay"></div>
+      </swiper-slide>
+      <swiper-slide class="slide">
+        <img src="@/assets/slider/3.png" alt="Slide 3" />
+        <div class="overlay"></div>
+      </swiper-slide>
+      <swiper-slide class="slide">
+        <img src="@/assets/slider/4.png" alt="Slide 4" />
+        <div class="overlay"></div>
+      </swiper-slide>
+    </swiper>
+
+    <!-- Matn (chap tarafda) -->
+    <div class="text-container">
+      <span class="animated-text">{{ displayedTitle }}
+        <span class="cursor" :class="{ 'active': isCursorActive }">|</span>
+      </span>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
+import { ref, onMounted } from "vue";
+
+export default {
+  components: { Swiper, SwiperSlide },
+  setup() {
+    const title = "Modern solutions for energy future";
+    const displayedTitle = ref("");
+    const currentIndex = ref(0);
+    const isCursorActive = ref(true);
+    const isMounted = ref(false);
+
+    onMounted(() => {
+      setTimeout(() => {
+        startAnimation();
+      }, 1600);
+      blinkCursor();
+      // emit('loaded');
+      isMounted.value = true;
+      setInterval(() => {
+        startAnimation();
+      }, 10000);
+    });
+
+    const startAnimation = () => {
+      displayedTitle.value = "";
+      currentIndex.value = 0;
+      animateText();
+    };
+
+    const animateText = () => {
+      if (currentIndex.value < title.length) {
+        displayedTitle.value += title[currentIndex.value];
+        currentIndex.value++;
+        setTimeout(animateText, 85);
+      }
+    };
+
+    const blinkCursor = () => {
+      setInterval(() => {
+        isCursorActive.value = !isCursorActive.value;
+      }, 500);
+    };
+
+    return {Autoplay, displayedTitle, isCursorActive};
+  },
+};
+</script>
+
+<style scoped>
+/* Slider konteyner */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 96vh;
+}
+
+/* Sliderning o'zi */
+.home-slider {
+  width: 100%;
+  height: 100%;
+}
+
+/* Har bir slayd */
+.slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  object-fit: cover;
+}
+
+/* Qora parda (overlay) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Matn konteyneri (Chap tarafda joylashgan) */
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Matn uslubi */
+.animated-text {
+  width: 75%;
+  font-size: 64px;
+  font-weight: 800;
+  color: white;
+  font-family: "Arial", sans-serif;
+  display: inline-block;
+  user-select: none;
+  line-height: 70px;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Smooth o'chish */
+.fadeOut {
+  opacity: 0;
+}
+
+.cursor.active {
+  opacity: 1;
+}
+
+.cursor:not(.active) {
+  opacity: 0;
+}
+</style>

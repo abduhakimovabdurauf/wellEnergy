@@ -1,0 +1,101 @@
+<template>
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <form @submit.prevent="sendMessage">
+      <div class="input-group">
+        <i class='bx bx-user'></i>
+        <input type="text" v-model="form.name" placeholder="Full Name" required>
+      </div>
+      <div class="input-group">
+        <i class='bx bx-phone'></i>
+        <input type="tel" v-model="form.phone" placeholder="Phone Number" required>
+      </div>
+      <div class="input-group">
+        <i class='bx bx-envelope'></i>
+        <input type="email" v-model="form.email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <i class='bx bx-message-square-dots'></i>
+        <textarea v-model="form.message" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      form: {
+        name: '',
+        phone: '',
+        email: '',
+        message: ''
+      }
+    };
+  },
+  methods: {
+    async sendMessage() {
+      const botToken = '7241737717:AAEJ4QiPILVd-0Ox7HDoddv61nxo8w3l6Dw';
+      const chatId = '-1002375788238';
+      const text = `New Message:%0AName: ${this.form.name}%0APhone: ${this.form.phone}%0AEmail: ${this.form.email}%0AMessage: ${this.form.message}`;
+
+      try {
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}`);
+        alert('Message sent successfully!');
+      } catch (error) {
+        alert('Failed to send message.');
+      }
+    }
+  }
+};
+</script>
+
+<style scoped>
+.contact-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #222;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #333;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.input-group i {
+  margin-right: 10px;
+  color: white;
+}
+
+input, textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #ff5733;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
