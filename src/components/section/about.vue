@@ -1,59 +1,53 @@
 <template>
   <div class="full">
     <section class="about">
-      <h2 class="title">About Afiyat Energy</h2>
-      <p class="subtitle">Your Reliable Partner in Oil Products and Fertilizers</p>
-      <p class="description">
-        We specialize in supplying high-quality oil products and fertilizers for industrial enterprises and agriculture.
-      </p>
+      <h2 class="title">{{ t('about.title') }}</h2>
+      <p class="subtitle">{{ t('about.subtitle') }}</p>
+      <p class="description">{{ t('about.description') }}</p>
+
       <div class="features">
-        <div class="feature">
-          <i class='bx bx-certification'></i>
-          <h3>Quality</h3>
-          <p>Only certified products from leading manufacturers</p>
-        </div>
-        <div class="feature">
-          <i class='bx bx-truck'></i>
-          <h3>Delivery</h3>
-          <p>Fast delivery throughout Uzbekistan and CIS countries</p>
-        </div>
-        <div class="feature">
-          <i class='bx bx-support'></i>
-          <h3>Support</h3>
-          <p>Professional consultation and technical support</p>
-        </div>
-        <div class="feature">
-          <i class='bx bx-shield'></i>
-          <h3>Warranty</h3>
-          <p>Warranty and post-warranty service</p>
+        <div class="feature" v-for="feature in features" :key="feature.key">
+          <i :class="feature.icon"></i>
+          <h3>{{ t(`about.features.${feature.key}.title`) }}</h3>
+          <p>{{ t(`about.features.${feature.key}.description`) }}</p>
         </div>
       </div>
+
       <div class="stats" ref="aboutSection">
         <div class="stat">
           <h3>{{ experience }}+</h3>
-          <p>Years of Experience</p>
+          <p>{{ t('about.stats.experience') }}</p>
         </div>
         <div class="stat">
           <h3>{{ clients }}+</h3>
-          <p>Clients</p>
+          <p>{{ t('about.stats.clients') }}</p>
         </div>
         <div class="stat">
           <h3>{{ projects }}+</h3>
-          <p>Projects</p>
+          <p>{{ t('about.stats.projects') }}</p>
         </div>
       </div>
     </section>
   </div>
-
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const experience = ref(0);
 const clients = ref(0);
 const projects = ref(0);
 const aboutSection = ref(null);
+
+const features = [
+  { key: 'quality', icon: 'bx bx-certification' },
+  { key: 'delivery', icon: 'bx bx-truck' },
+  { key: 'support', icon: 'bx bx-support' },
+  { key: 'warranty', icon: 'bx bx-shield' }
+];
 
 const animateStats = (target, value) => {
   let count = 0;
@@ -83,6 +77,7 @@ onMounted(() => {
   }
 });
 </script>
+
 
 <style scoped>
 .full {

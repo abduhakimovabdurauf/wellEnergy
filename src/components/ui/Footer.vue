@@ -2,28 +2,25 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-section">
-        <h3>About Company</h3>
-        <p>
-          Afiyat <span class="highlight">Energy</span> is a leading supplier of oil products and
-          fertilizers in Uzbekistan. We offer a wide range of solutions for industry and private sector.
-        </p>
+        <h3>{{ $t('footer.aboutCompany') }}</h3>
+        <p>{{ $t('footer.aboutText') }}</p>
       </div>
 
       <div class="footer-section">
-        <h3>Navigation</h3>
+        <h3>{{ $t('footer.navigation') }}</h3>
         <ul>
-          <li><router-link to="/about">About Us</router-link></li>
-          <li><router-link to="/catalog">Catalog</router-link></li>
-          <li><router-link to="/blog">Blog</router-link></li>
-          <li><router-link to="/contacts">Contacts</router-link></li>
+          <li><router-link to="/about">{{ $t('footer.aboutUs') }}</router-link></li>
+          <li><router-link to="/catalog">{{ $t('footer.catalog') }}</router-link></li>
+          <li><router-link to="/blog">{{ $t('footer.blog') }}</router-link></li>
+          <li><router-link to="/contacts">{{ $t('footer.contacts') }}</router-link></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h3>Contacts</h3>
-        <p><i class='bx bx-map'></i> 100 Mirzo-Ulugbek St., Tashkent</p>
-        <p><i class='bx bx-phone'></i> +998 99 999 99 99</p>
-        <p><i class='bx bx-envelope'></i> <a href="mailto:info@afiyat-energy.uz">info@afiyat-energy.uz</a></p>
+        <h3>{{ $t('footer.contactTitle') }}</h3>
+        <p><i class='bx bx-map'></i> {{ $t('footer.address') }}</p>
+        <p><i class='bx bx-phone'></i> {{ $t('footer.phone') }}</p>
+        <p><i class='bx bx-envelope'></i> <a href="mailto:info@afiyat-energy.uz">{{ $t('footer.email') }}</a></p>
         <div class="social-icons">
           <a href="#"><i class='bx bxl-facebook'></i></a>
           <a href="#"><i class='bx bxl-telegram'></i></a>
@@ -33,15 +30,18 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Afiyat Energy. All rights reserved.</p>
-      <p class="developed">Developed with ❤️ by Afiyat Energy team</p>
+      <p>{{ $t('footer.rights') }}</p>
+      <p class="developed">{{ $t('footer.developed') }}</p>
     </div>
   </footer>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
+
 
 <style scoped>
 .footer {

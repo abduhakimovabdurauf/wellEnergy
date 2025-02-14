@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <h2 class="title">Our Products</h2>
+    <h2 class="title">{{ t("products.title") }}</h2>
 
     <div class="main-layout">
       <!-- Filter Section -->
       <div class="filters">
         <button class="toggle-filter" @click="toggleFilters">
-          <i class="bx bx-filter"></i> Filters
+          <i class="bx bx-filter"></i> {{ t("products.filters") }}
         </button>
 
         <transition name="fade">
           <div v-if="showFilters" class="filter-panel">
-            <h3>Categories</h3>
+            <h3>{{ t("products.categories") }}</h3>
             <div class="category-grid">
               <div
                   v-for="(label, category) in categories"
@@ -25,13 +25,11 @@
             </div>
 
             <!-- Price Range Filter -->
-            <!-- Price Range Filter -->
-            <h3>Price Range</h3>
+            <h3>{{ t("products.priceRange") }}</h3>
             <div class="price-filter">
               <input type="range" :min="minPrice" :max="maxPrice" v-model="selectedPrice" />
               <span>${{ selectedPrice }}</span>
             </div>
-
           </div>
         </transition>
       </div>
@@ -41,11 +39,9 @@
         <div v-for="product in filteredProducts" :key="product.id" class="product-card">
           <img :src="product.image" :alt="product.name" class="product-image">
           <div class="card-content">
-            <router-link class="card_link" :to="name='/productdetails/' + product.id">{{ product.name }}</router-link>
-<!--            <p class="product-description">{{ product.description }}</p>-->
-<!--            <p class="price">${{ product.price }}</p>-->
+            <router-link class="card_link" :to="'/productdetails/' + product.id">{{ product.name }}</router-link>
             <button class="add-to-cart" @click="addToCart(product)">
-              Add to Cart <i class='bx bxs-cart-alt'></i>
+              {{ t("products.addToCart") }} <i class='bx bxs-cart-alt'></i>
             </button>
           </div>
         </div>
@@ -54,10 +50,13 @@
   </div>
 </template>
 
+
 <script setup>
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
+import { useI18n } from 'vue-i18n';
 
+const { t, locale } = useI18n();
 const store = useStore();
 const showFilters = ref(true);
 const selectedCategory = ref("");
@@ -140,7 +139,8 @@ const toggleFilters = () => {
   background: #fff;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3) ;
+
   margin-top: 15px;
 }
 

@@ -10,14 +10,22 @@
       <!-- Navbar -->
       <nav :class="['nav', { 'open': isOpen }]">
         <ul>
-          <li><router-link to="/" class="animated-link">Home</router-link></li>
-          <li><router-link to="/products" class="animated-link" href="#">Products</router-link></li>
-          <li><router-link to="/contact" class="animated-link">Contact</router-link></li>
-          <li><a class="animated-link phone_number" href="+12345678910"><i class='bx bxs-phone' ></i> +12345678910</a></li>
+          <li><router-link to="/" class="animated-link">{{ t('home') }}</router-link></li>
+          <li><router-link to="/products" class="animated-link">{{ t('product') }}</router-link></li>
+          <li><router-link to="/contact" class="animated-link">{{ t('contact') }}</router-link></li>
+          <li>
+            <a class="animated-link phone_number" href="+852 35807372">
+              <i class='bx bxs-phone'></i> {{ t('phone') }}
+            </a>
+          </li>
         </ul>
       </nav>
 
       <button class="cart-btn">
+        <select v-model="currentLocale">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
         <router-link style="color: white;" to="/cart">
           <i class="bx bx-cart"></i>
         </router-link>
@@ -31,10 +39,10 @@
 
   <section class="mobile-menu" :class="{ 'open': isOpen }">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">+12345678910</a></li>
+      <li><a href="#">{{ t('home') }}</a></li>
+      <li><a href="#">{{ t('products') }}</a></li>
+      <li><a href="#">{{ t('contact') }}</a></li>
+      <li><a href="#">{{ t('phone') }}</a></li>
     </ul>
 
     <button class="cart-btn">
@@ -46,7 +54,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n();
+
+const currentLocale = computed({
+  get: () => locale.value,
+  set: (lang) => {
+    locale.value = lang;
+  }
+});
 
 const isOpen = ref(false);
 
@@ -54,6 +72,7 @@ const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
 </script>
+
 
 <style scoped>
 

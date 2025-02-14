@@ -25,7 +25,6 @@
       </swiper-slide>
     </swiper>
 
-    <!-- Matn (chap tomonda) -->
     <div class="text-container">
       <span class="animated-text">{{ displayedTitle }}
         <span class="cursor" :class="{ 'active': isCursorActive }">|</span>
@@ -39,17 +38,27 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
   components: { Swiper, SwiperSlide },
   setup() {
-    const { t, locale } = useI18n(); // Vue-i18n
-    const title = ref(t("sliderTitle")); // Dinamik tarjima
+    const { t } = useI18n();
+    const title = ref(t("sliderTitle"));
     const displayedTitle = ref("");
     const currentIndex = ref(0);
     const isCursorActive = ref(true);
+
+    onMounted(() => {
+      setTimeout(() => {
+        startAnimation();
+      }, 1600);
+      blinkCursor();
+      setInterval(() => {
+        startAnimation();
+      }, 10000);
+    });
 
     const startAnimation = () => {
       displayedTitle.value = "";
@@ -71,22 +80,10 @@ export default {
       }, 500);
     };
 
-    onMounted(() => {
-      setTimeout(startAnimation, 1600);
-      blinkCursor();
-      setInterval(startAnimation, 10000);
-    });
-
-    watch(locale, () => {
-      title.value = t("sliderTitle");
-      startAnimation();
-    });
-
     return { Autoplay, displayedTitle, isCursorActive, t };
   },
 };
 </script>
-
 
 
 <style scoped>

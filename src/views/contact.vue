@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <h2>Contact Us</h2>
-    <p class="subtitle">We are always ready to answer your questions</p>
+    <h2>{{ t("contacts.title") }}</h2>
+    <p class="subtitle">{{ t("contacts.subtitle") }}</p>
     <div class="contact-info">
       <div class="card" v-for="(info, index) in contactDetails" :key="index">
         <i :class="info.icon"></i>
@@ -15,17 +15,31 @@
     <form @submit.prevent="sendMessage">
       <div class="input-group" v-for="(field, index) in formFields" :key="index">
         <i :class="field.icon"></i>
-        <input v-if="field.type !== 'textarea'" :type="field.type" v-model="form[field.model]" :placeholder="field.placeholder" required>
-        <textarea v-else v-model="form[field.model]" :placeholder="field.placeholder" required></textarea>
+        <input
+            v-if="field.type !== 'textarea'"
+            :type="field.type"
+            v-model="form[field.model]"
+            :placeholder="t(`contacts.fields.${field.model}`)"
+            required
+        />
+        <textarea
+            v-else
+            v-model="form[field.model]"
+            :placeholder="t(`contacts.fields.${field.model}`)"
+            required
+        ></textarea>
       </div>
-      <button type="submit">Send Message</button>
+      <button type="submit">{{ t("contacts.sendMessage") }}</button>
     </form>
   </div>
 </template>
 
+
 <script setup>
 import { reactive } from 'vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const form = reactive({
   name: '',
   phone: '',
@@ -34,9 +48,9 @@ const form = reactive({
 });
 
 const contactDetails = [
-  { icon: 'bx bx-map', title: 'Address', detail: '29 Bunyodkor Street, Tashkent, Uzbekistan' },
-  { icon: 'bx bx-phone', title: 'Phone', detail: '+998 71 123-45-67' },
-  { icon: 'bx bx-envelope', title: 'Email', detail: 'info@afiyat-energy.uz' }
+  { icon: 'bx bx-map', title: 'Address', detail: 'UNIT 1406A, 14/F, THE BELGIAN BANK BUILDING, NOS. 721 - 725 NATHAN ROAD, KOWLOON, HONG KONG' },
+  { icon: 'bx bx-phone', title: 'Phone', detail: '+852 35807372' },
+  { icon: 'bx bx-envelope', title: 'Email', detail: 'luenfatbusiness@gmail.com' }
 ];
 
 const formFields = [
@@ -48,7 +62,7 @@ const formFields = [
 
 const sendMessage = async () => {
   const botToken = '7241737717:AAEJ4QiPILVd-0Ox7HDoddv61nxo8w3l6Dw';
-  const chatId = 'YOUR_CHAT_ID';
+  const chatId = '-1002375788238';
   const text = `New Message:%0AName: ${form.name}%0APhone: ${form.phone}%0AEmail: ${form.email}%0AMessage: ${form.message}`;
 
   try {

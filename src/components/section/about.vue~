@@ -1,47 +1,50 @@
 <template>
-  <section class="about">
-    <h2 class="title">About Afiyat Energy</h2>
-    <p class="subtitle">Your Reliable Partner in Oil Products and Fertilizers</p>
-    <p class="description">
-      We specialize in supplying high-quality oil products and fertilizers for industrial enterprises and agriculture.
-    </p>
-    <div class="features">
-      <div class="feature">
-        <i class='bx bx-certification'></i>
-        <h3>Quality</h3>
-        <p>Only certified products from leading manufacturers</p>
+  <div class="full">
+    <section class="about">
+      <h2 class="title">About Afiyat Energy</h2>
+      <p class="subtitle">Your Reliable Partner in Oil Products and Fertilizers</p>
+      <p class="description">
+        We specialize in supplying high-quality oil products and fertilizers for industrial enterprises and agriculture.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <i class='bx bx-certification'></i>
+          <h3>Quality</h3>
+          <p>Only certified products from leading manufacturers</p>
+        </div>
+        <div class="feature">
+          <i class='bx bx-truck'></i>
+          <h3>Delivery</h3>
+          <p>Fast delivery throughout Uzbekistan and CIS countries</p>
+        </div>
+        <div class="feature">
+          <i class='bx bx-support'></i>
+          <h3>Support</h3>
+          <p>Professional consultation and technical support</p>
+        </div>
+        <div class="feature">
+          <i class='bx bx-shield'></i>
+          <h3>Warranty</h3>
+          <p>Warranty and post-warranty service</p>
+        </div>
       </div>
-      <div class="feature">
-        <i class='bx bx-truck'></i>
-        <h3>Delivery</h3>
-        <p>Fast delivery throughout Uzbekistan and CIS countries</p>
+      <div class="stats" ref="aboutSection">
+        <div class="stat">
+          <h3>{{ experience }}+</h3>
+          <p>Years of Experience</p>
+        </div>
+        <div class="stat">
+          <h3>{{ clients }}+</h3>
+          <p>Clients</p>
+        </div>
+        <div class="stat">
+          <h3>{{ projects }}+</h3>
+          <p>Projects</p>
+        </div>
       </div>
-      <div class="feature">
-        <i class='bx bx-support'></i>
-        <h3>Support</h3>
-        <p>Professional consultation and technical support</p>
-      </div>
-      <div class="feature">
-        <i class='bx bx-shield'></i>
-        <h3>Warranty</h3>
-        <p>Warranty and post-warranty service</p>
-      </div>
-    </div>
-    <div class="stats" ref="aboutSection">
-      <div class="stat">
-        <h3>{{ experience }}+</h3>
-        <p>Years of Experience</p>
-      </div>
-      <div class="stat">
-        <h3>{{ clients }}+</h3>
-        <p>Clients</p>
-      </div>
-      <div class="stat">
-        <h3>{{ projects }}+</h3>
-        <p>Projects</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
 </template>
 
 <script setup>
@@ -82,14 +85,18 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.full {
+  width: 100%;
+  height: auto;
+  background: #f0f4f8;
+}
+
 .about {
   text-align: center;
   padding: 100px 20px;
   max-width: 1200px;
   margin: auto;
-  background: #f0f4f8;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 .title {
   font-size: 36px;

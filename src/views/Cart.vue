@@ -1,30 +1,33 @@
 <template>
   <div class="cart-container">
-    <h1>Your Cart</h1>
+    <h1>{{ t("cartDetails.title") }}</h1>
     <div v-if="cartItems.length > 0">
       <div v-for="item in cartItems" :key="item.id" class="cart-item">
         <img :src="item.image" :alt="item.name" class="cart-image" />
         <div class="item-details">
-          <h3>{{ item.name }}</h3>
-          <p class="price">Price: ${{ item.price }}</p>
+          <h3>{{ item?.name?.[locale] ?? t("cartDetails.unknown") }}</h3>
+          <p class="price">{{ t("cartDetails.price") }}: ${{ item?.price?.[locale] ?? 0 }}</p>
+
           <div class="quantity-controls">
             <button @click="decreaseQuantity(item.id)" class="quantity-btn">-</button>
-            <span class="quantity">{{ item.quantity }}</span>
+            <span class="quantity">{{ t("cartDetails.quantity") }}: {{ item?.quantity?.[locale] ?? 0 }}</span>
             <button @click="increaseQuantity(item.id)" class="quantity-btn">+</button>
           </div>
-          <button @click="removeFromCart(item.id)" class="remove-btn">Remove</button>
+          <button @click="removeFromCart(item.id)" class="remove-btn">{{ t("cartDetails.remove") }}</button>
         </div>
       </div>
-      <h2 class="total">Total: ${{ cartTotal }}</h2>
+      <h2 class="total">{{ t("cartDetails.total") }}: ${{ cartTotal }}</h2>
     </div>
-    <p v-else class="empty-message">Your cart is empty.</p>
+    <p v-else class="empty-message">{{ t("cartDetails.emptyMessage") }}</p>
   </div>
 </template>
 
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { useI18n } from 'vue-i18n';
 
+const { t, locale } = useI18n();
 const store = useStore();
 const cartItems = computed(() => store.getters["cart/cartItems"]);
 const cartTotal = computed(() => store.getters["cart/cartTotal"]);
@@ -158,5 +161,48 @@ h3 {
   font-size: 18px;
   margin-top: 20px;
   font-style: italic;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .cart-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .quantity-controls {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .cart-item {
+    padding: 10px;
+  }
+
+  .cart-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .quantity-controls {
+    flex-direction: column;
+    gap: 6px;
+  }
 }
 </style>

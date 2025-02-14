@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1 class="title">Popular Products</h1>
+      <h1 class="title">{{ t('popularProducts') }}</h1>
       <router-link to="/products" class="view-all">
-        View All Products <i class="bx bx-right-arrow-alt"></i>
+        {{ t('viewAllProducts') }} <i class="bx bx-right-arrow-alt"></i>
       </router-link>
     </div>
 
@@ -15,9 +15,9 @@
           class="product-card"
       >
         <img :src="product.image" :alt="product.name" class="product-image" />
-        <h3 class="product-title">{{ product.name }}</h3>
-        <span v-if="product.price" class="product-price">${{ product.price }}</span>
-        <span v-else class="product-price unavailable">Price not available</span>
+        <h3 class="product-title">{{ product.name[locale] }}</h3>
+        <span v-if="product.price" class="product-price">${{ product.price[locale] }}</span>
+        <span v-else class="product-price unavailable">{{ t('priceNotAvailable') }}</span>
       </router-link>
     </div>
   </div>
@@ -26,10 +26,13 @@
 <script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { useI18n } from 'vue-i18n';
 
+const { t,locale } = useI18n();
 const store = useStore();
 const popularProducts = computed(() => store.getters['popular/allProducts']);
 </script>
+
 
 <style scoped>
 /* Global styles */

@@ -4,26 +4,30 @@
       <img :src="product.image" :alt="product.name" />
     </div>
     <div class="product-info">
-      <h1>{{ product.name }}</h1>
-      <p class="price">${{ product.price }}</p>
-      <p class="description">{{ product.description }}</p>
+      <h1 v-if="product">{{ product.name?.[locale] }}</h1>
+      <p v-if="product" class="price">{{ t("productDetails.price") }}: ${{ product.price?.[locale] }}</p>
+      <p v-if="product" class="description">{{ product.description?.[locale] }}</p>
       <div class="btn-group">
-        <button class="buy-btn">Add to Cart <i class='bx bxs-cart-alt'></i></button>
-        <router-link to="/products" class="back-btn">Back to Products <i class='bx bx-arrow-back'></i></router-link>
+        <button class="buy-btn">{{ t("productDetails.addToCart") }} <i class='bx bxs-cart-alt'></i></button>
+        <router-link to="/products" class="back-btn">
+          {{ t("productDetails.backToProducts") }} <i class='bx bx-arrow-back'></i>
+        </router-link>
       </div>
-
-
     </div>
   </div>
   <div v-else>
-    <p>Product not found.</p>
+    <p>{{ t("productDetails.notFound") }}</p>
   </div>
 </template>
+
 
 <script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n();
 
 const store = useStore();
 const route = useRoute();

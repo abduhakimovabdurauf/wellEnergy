@@ -1,0 +1,80 @@
+{
+  "sliderTitle": "未来能源的现代解决方案",
+  "home": "主页",
+  "product": "产品",
+  "contact": "联系",
+  "phone": "+852 35807372",
+  "popularProducts": "热门产品",
+  "viewAllProducts": "查看所有产品",
+  "priceNotAvailable": "价格不可用",
+  "about": {
+    "title": "关于 Well Energy",
+    "subtitle": "您在石油产品和化肥方面的可靠合作伙伴",
+    "description": "我们专注于为工业企业和农业提供高质量的石油产品和化肥。",
+    "features": {
+      "quality": {
+        "title": "质量",
+        "description": "仅来自领先制造商的认证产品"
+      },
+      "delivery": {
+        "title": "交付",
+        "description": "快速配送至乌兹别克斯坦和独联体国家"
+      },
+      "support": {
+        "title": "支持",
+        "description": "专业咨询和技术支持"
+      },
+      "warranty": {
+        "title": "保修",
+        "description": "保修和售后服务"
+      }
+    },
+    "stats": {
+      "experience": "经验年数",
+      "clients": "客户",
+      "projects": "项目"
+    }
+  },
+  "footer": {
+    "aboutCompany": "关于公司",
+    "aboutText": "Well Energy 是乌兹别克斯坦领先的石油产品和化肥供应商。我们为工业和私营部门提供广泛的解决方案。",
+    "navigation": "导航",
+    "aboutUs": "关于我们",
+    "catalog": "目录",
+    "blog": "博客",
+    "contacts": "联系方式",
+    "contactTitle": "联系方式",
+    "address": "香港九龙弥敦道721-725号比利时银行大厦14楼1406A单元",
+    "phone": "+852 35807372",
+    "email": "luenfatbusiness@gmail.com",
+    "rights": "© 2025 Well Energy。保留所有权利。",
+    "developed": "由 Well Energy 团队 ❤️ 开发"
+  },
+  "products": {
+    "title": "我们的产品",
+    "filters": "筛选",
+    "categories": "类别",
+    "priceRange": "价格范围",
+    "addToCart": "加入购物车"
+  },
+  "contacts": {
+    "title": "联系我们",
+    "subtitle": "我们随时准备回答您的问题",
+    "sendMessage": "发送信息",
+    "fields": {
+      "name": "您的姓名",
+      "email": "您的电子邮件",
+      "phone": "您的电子邮件",
+      "message": "您的留言"
+    }
+  },
+  "productDetails": {
+    "notFound": "未找到产品。",
+    "price": "价格",
+    "addToCart": "添加到购物车",
+    "backToProducts": "返回产品列表"
+  }
+
+
+
+}
