@@ -18,7 +18,6 @@
       </nav>
 
       <button class="cart-btn">
-        <i class='bx bxs-user-circle' ></i>
         <router-link style="color: white;" to="/cart">
           <i class="bx bx-cart"></i>
         </router-link>
@@ -37,6 +36,12 @@
       <li><a href="#">Contact</a></li>
       <li><a href="#">+12345678910</a></li>
     </ul>
+
+    <button class="cart-btn">
+      <router-link style="color: white;" to="/cart">
+        <i class="bx bx-cart"></i>
+      </router-link>
+    </button>
   </section>
 </template>
 

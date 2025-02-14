@@ -32,22 +32,6 @@ const state = {
             image: "@/assets/products/fertilizers/4.png",
             description: "Water-soluble fertilizer with high potassium content. Composition: - Nitrogen (N): 10% - Phosphorus (P): 10% - Potassium (K): 40% - Trace elements (TE): B, Zn, Cu, Mn, Fe, Mo Features: - High potassium content for improved fruit quality - Increases resistance to stress conditions - Improves taste qualities of products Recommended use: - For crops requiring potassium nutrition - Perfect for application during fruit ripening period",
         },
-        {
-            id: 5,
-            name: "OLTIN NPK Supra Yellow 13:40:13+TE",
-            price: null,
-            category: "fertilizers",
-            image: "@/assets/products/fertilizers/5.png",
-            description: "Water-soluble fertilizer with high phosphorus content. Composition: - Nitrogen (N): 13% - Phosphorus (P): 40% - Potassium (K): 13% - Trace elements (TE): B, Zn, Cu, Mn, Fe, Mo Features: - High phosphorus content for root system development - Optimal for use in early growth stage - Chelated microelements Recommended use: - For all types of crops, especially phosphorus-demanding ones - Effective for root feeding",
-        },
-        {
-            id: 6,
-            name: "OLTIN NPK Supra Green 18:18:18+TE",
-            price: null,
-            category: "fertilizers",
-            image: "@/assets/products/fertilizers/6.png",
-            description: "Water-soluble complex fertilizer with trace elements. Composition: - Nitrogen (N): 18% - Phosphorus (P): 18% - Potassium (K): 18% - Trace elements (TE): B, Zn, Cu, Mn, Fe, Mo Features: - Universal fertilizer for all soil types - Suitable for use both in open field and greenhouses - Chelated microelements for better absorption Recommended use: - For cereals, oilseeds, industrial crops - Perfect for foliar feeding",
-        },
     ],
 };
 

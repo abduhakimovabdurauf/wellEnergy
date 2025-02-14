@@ -41,7 +41,7 @@
         <div v-for="product in filteredProducts" :key="product.id" class="product-card">
           <img :src="product.image" :alt="product.name" class="product-image">
           <div class="card-content">
-            <router-link :to="name='/productdetails/' + product.id">{{ product.name }}</router-link>
+            <router-link class="card_link" :to="name='/productdetails/' + product.id">{{ product.name }}</router-link>
 <!--            <p class="product-description">{{ product.description }}</p>-->
 <!--            <p class="price">${{ product.price }}</p>-->
             <button class="add-to-cart" @click="addToCart(product)">
@@ -64,35 +64,27 @@ const selectedCategory = ref("");
 
 const products = computed(() => store.getters["products/allProducts"]);
 
-console.log(products.value)
 const minPrice = computed(() => {
   return products.value.length > 0 ? Math.min(...products.value.map(p => p.price)) : 0;
 });
+
 const addToCart = (product) => {
   store.dispatch("cart/addToCart", product);
 };
+
 const maxPrice = computed(() => Math.max(...products.value.map(p => p.price), 0));
-
 const selectedPrice = ref(maxPrice.value);
-
 const categories = computed(() => Object.keys(store.state.products.categories));
 
 
 const filteredProducts = computed(() => {
   return products.value.filter(product => {
-    console.log("Filtrlash uchun mahsulot:", product); // Ma'lumotlar kelayotganini tekshirish
-
+    console.log("Filtrlash uchun mahsulot:", product);
     const categoryMatch = !selectedCategory.value || product.category === selectedCategory.value;
     const priceMatch = product.price === null || product.price <= selectedPrice.value;
-
-    console.log("categoryMatch:", categoryMatch, "priceMatch:", priceMatch);
-
     return categoryMatch && priceMatch;
   });
 });
-
-
-console.log("Filterlangan mahsulotlar:", filteredProducts.value);
 
 const toggleFilters = () => {
   showFilters.value = !showFilters.value;
@@ -134,31 +126,29 @@ const toggleFilters = () => {
   width: 100%;
   padding: 12px;
   font-size: 16px;
-  background: #0e374b;
-  color: white;
+  background: #fff;
+  color: black;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3) ;
 
-.toggle-filter:hover {
-  background: #0c2c3d;
 }
 
 .filter-panel {
-  background: #0e374b;
+  background: #fff;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3) ;
+
   margin-top: 15px;
 }
 
 h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #fff;
+  color: black !important;
 }
 
 /* Category Grid */
@@ -176,13 +166,13 @@ h3 {
   text-align: center;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3) ;
+
 }
 
 .category-card:hover,
 .category-card.active {
-  background: #1d5a82;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  background: #074a89;
 }
 
 /* Price Filter */
@@ -195,7 +185,7 @@ h3 {
 .price-filter input {
   width: 100%;
   cursor: pointer;
-  accent-color: #ffc300;
+  accent-color: #003566;
 }
 
 .add-to-cart {
@@ -208,12 +198,17 @@ h3 {
   width: 100%;
   font-weight: bold;
   margin-top: 10px;
+  transition: all .4s;
+}
+
+.add-to-cart:hover {
+  transform: scale(.95);
 }
 
 .price-filter span {
   font-size: 16px;
   font-weight: bold;
-  color: #ffc300;
+  color: #003566;
 }
 
 /* Product Grid */
@@ -223,19 +218,21 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-
+.card_link {
+  text-decoration: none;
+}
 /* Product Card */
 .product-card {
-  background: #1d5a82;
+  background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3) ;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .product-image {
@@ -254,26 +251,12 @@ h3 {
   color: #fff;
 }
 
-.product-description {
-  font-size: 14px;
-  color: #ccc;
-}
-
 .price {
   font-size: 16px;
   font-weight: bold;
   color: #ffc300;
 }
 
-/* Animations */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .main-layout {
     flex-direction: column;
@@ -284,4 +267,17 @@ h3 {
     width: 100%;
   }
 }
+
+.product-card {
+  overflow: hidden;
+}
+
+.product-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
 </style>
