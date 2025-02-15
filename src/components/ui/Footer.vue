@@ -10,9 +10,8 @@
         <h3>{{ $t('footer.navigation') }}</h3>
         <ul>
           <li><router-link to="/about">{{ $t('footer.aboutUs') }}</router-link></li>
-          <li><router-link to="/catalog">{{ $t('footer.catalog') }}</router-link></li>
-          <li><router-link to="/blog">{{ $t('footer.blog') }}</router-link></li>
-          <li><router-link to="/contacts">{{ $t('footer.contacts') }}</router-link></li>
+          <li><router-link to="/products">{{ $t('footer.catalog') }}</router-link></li>
+          <li><router-link to="/contact">{{ $t('footer.contacts') }}</router-link></li>
         </ul>
       </div>
 

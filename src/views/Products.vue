@@ -12,15 +12,37 @@
         <transition name="fade">
           <div v-if="showFilters" class="filter-panel">
             <h3>{{ t("products.categories") }}</h3>
+
             <div class="category-grid">
               <div
-                  v-for="(label, category) in categories"
-                  :key="category"
-                  @click="selectedCategory = category"
-                  :class="{ active: selectedCategory === category }"
-                  class="category-card"
+                  @click="selectedCategory = ''"
+                  :class="{ active: selectedCategory === '' }"
+                  class="category-card all-categories"
+                  style="margin-top: 20px"
               >
-                {{ label }}
+                All
+              </div>
+            </div>
+
+            <div class="category-grid">
+              <div
+                  @click="selectedCategory = 'fertilizers'"
+                  :class="{ active: selectedCategory === 'fertilizers' }"
+                  class="category-card"
+                  style="margin-top: 20px"
+              >
+                fertilizers
+              </div>
+            </div>
+
+            <div class="category-grid">
+              <div
+                  @click="selectedCategory = 'petroleum'"
+                  :class="{ active: selectedCategory === 'petroleum' }"
+                  class="category-card"
+                  style="margin-top: 20px"
+              >
+                petroleum
               </div>
             </div>
 
@@ -77,8 +99,8 @@ const categories = computed(() => Object.keys(store.state.products.categories));
 
 
 const filteredProducts = computed(() => {
+
   return products.value.filter(product => {
-    console.log("Filtrlash uchun mahsulot:", product);
     const categoryMatch = !selectedCategory.value || product.category === selectedCategory.value;
     const priceMatch = product.price === null || product.price <= selectedPrice.value;
     return categoryMatch && priceMatch;
