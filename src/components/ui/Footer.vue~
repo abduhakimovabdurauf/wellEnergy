@@ -87,6 +87,11 @@ const { t } = useI18n();
   color: #ffcc00;
 }
 
+.highlight {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
 .footer-section p i {
   margin-right: 8px;
 }
@@ -116,11 +121,11 @@ const { t } = useI18n();
 }
 
 .footer-bottom {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 20px;
   justify-content: space-between;
   border-top: 1px solid #333;
   padding-top: 15px;
