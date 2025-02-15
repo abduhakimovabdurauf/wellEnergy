@@ -88,6 +88,7 @@ const toggleMenu = () => {
   padding: 15px 20px;
   color: #fff;
   position: sticky;
+  z-index: 9999;
   top: 0;
   left: 0;
 }

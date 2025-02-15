@@ -223,6 +223,7 @@ select {
   cursor: pointer;
   outline: none;
   transition: all 0.3s ease;
+  margin-right: 5px;
 }
 
 select:hover {
