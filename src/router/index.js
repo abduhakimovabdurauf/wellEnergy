@@ -37,7 +37,8 @@ const router = createRouter({
       path: '/productdetails/:id',
       name: 'ProductDetails',
       component: () => import('../views/Product-Details.vue'),
-    }
+    },
+    { path: '/:pathMatch(.*)*', component: () => import('../views/NotFound.vue') },
   ],
 })
 export default router

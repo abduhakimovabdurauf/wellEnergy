@@ -2,10 +2,10 @@
   <header class="header">
     <div class="container">
       <!-- Logo -->
-      <div class="logo">
+      <router-link to="/" class="logo">
         <img src="@/assets/logo.png" alt="">
         Well <br> Energy
-      </div>
+      </router-link>
 
       <!-- Navbar -->
       <nav :class="['nav', { 'open': isOpen }]">
@@ -88,6 +88,7 @@ const toggleMenu = () => {
   padding: 15px 20px;
   color: #fff;
   position: sticky;
+  z-index: 9999;
   top: 0;
   left: 0;
 }
@@ -108,6 +109,8 @@ const toggleMenu = () => {
   line-height: 30px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: #fff;
 }
 
 .logo img {

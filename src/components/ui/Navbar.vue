@@ -2,10 +2,10 @@
   <header class="header">
     <div class="container">
       <!-- Logo -->
-      <div class="logo">
+      <router-link to="/" class="logo">
         <img src="@/assets/logo.png" alt="">
         Well <br> Energy
-      </div>
+      </router-link>
 
       <!-- Navbar -->
       <nav :class="['nav', { 'open': isOpen }]">
@@ -14,7 +14,7 @@
           <li><router-link to="/products" class="animated-link">{{ t('product') }}</router-link></li>
           <li><router-link to="/contact" class="animated-link">{{ t('contact') }}</router-link></li>
           <li>
-            <a class="animated-link phone_number">
+            <a class="animated-link phone_number" href="tel:+85235807372">
               <i class='bx bxs-phone'></i> {{ t('phone') }}
             </a>
           </li>
@@ -42,7 +42,7 @@
       <li><a href="#">{{ t('home') }}</a></li>
       <li><a href="#">{{ t('product') }}</a></li>
       <li><a href="#">{{ t('contact') }}</a></li>
-      <li><a>{{ t('phone') }}</a></li>
+      <li><a href="tel:+85235807372">{{ t('phone') }}</a></li>
     </ul>
 
     <button class="cart-btn">
@@ -109,6 +109,8 @@ const toggleMenu = () => {
   line-height: 30px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: #fff;
 }
 
 .logo img {
