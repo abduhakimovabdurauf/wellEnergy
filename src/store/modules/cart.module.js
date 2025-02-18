@@ -1,3 +1,7 @@
+import { useToast } from 'vue-toastification';
+
+
+
 import img1 from "@/assets/products/fertilizers/1.png";
 import img2 from "@/assets/products/fertilizers/2.png";
 import img3 from "@/assets/products/fertilizers/3.png";
@@ -10,6 +14,10 @@ import img9 from "@/assets/products/fertilizers/9.png";
 import img10 from "@/assets/products/fertilizers/10.png";
 import img11 from "@/assets/products/fertilizers/11.png";
 import img12 from "@/assets/products/fertilizers/12.png";
+
+import ai92 from "@/assets/products/petroleum/ai92.png";
+import ai95 from "@/assets/products/petroleum/ai95.png";
+import dizel from "@/assets/products/petroleum/dizel.png";
 
 const productImages = {
     1: img1,
@@ -24,8 +32,12 @@ const productImages = {
     10: img10,
     11: img11,
     12: img12,
+    92: ai92,
+    95: ai95,
+    96: dizel,
 };
 
+const toast = useToast();
 
 export default {
     namespaced: true,
@@ -34,7 +46,12 @@ export default {
     },
     mutations: {
         ADD_TO_CART(state, product) {
+            console.log(product)
             const item = state.cart.find((p) => p.id === product.id);
+            toast.success(`Mahsulot savatchaga qo‘shildi!`, {
+                position: "top-right",
+                timeout: 3000,
+            });
             if (item) {
                 item.quantity += 1;
             } else {
@@ -80,10 +97,11 @@ export default {
         cartItems: (state) =>
             state.cart.map((item) => ({
                 ...item,
-                image: productImages[item.id] || item.image, // Agar localStorage dan kelayotgan bo'lsa, eski rasmni ishlatish
+                image: productImages[item.id] ?? item.image,
             })),
         cartTotal: (state) =>
             state.cart.reduce((total, item) => total + item.price * item.quantity, 0),
     }
+
 
 };

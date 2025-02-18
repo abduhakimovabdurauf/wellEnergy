@@ -12,6 +12,10 @@ import img9 from "@/assets/products/fertilizers/9.png";
 import img10 from "@/assets/products/fertilizers/10.png";
 import img11 from "@/assets/products/fertilizers/11.png";
 import img12 from "@/assets/products/fertilizers/12.png";
+
+import ai92 from "@/assets/products/petroleum/ai92.png";
+import ai95 from "@/assets/products/petroleum/ai95.png";
+import dizel from "@/assets/products/petroleum/dizel.png";
 const state = {
     categories: {
         fertilizers: [
@@ -187,73 +191,45 @@ const state = {
         ],
         petroleum: [
             {
-                id: 1,
+                id: 92,
                 name: {
-                    en: "Diesel Fuel",
-                    zh: "柴油燃料"
+                    en: "BENZIN AI 92, K5",
+                    zh: "汽油 AI 92, K5"
                 },
                 price: null,
                 category: "petroleum",
-                image: null,
+                image: ai92,
                 description: {
-                    en: "High-quality diesel fuel suitable for various diesel engines. Features: - Low sulfur content - High energy efficiency - Suitable for transportation and industrial use Recommended use: - Trucks, buses, and heavy machinery - Industrial and agricultural applications",
-                    zh: "高品質柴油，適用於各種柴油發動機。 特點： - 低硫含量 - 高能效 - 適用於交通運輸和工業用途 建議用途： - 卡車、巴士和重型機械 - 工業和農業應用"
+                    en: "Premium AI 92, K5 gasoline with high performance and low emissions. Features: - Enhanced fuel efficiency - Reduced engine deposits - Suitable for modern gasoline engines Recommended use: - Passenger cars - Motorcycles and small vehicles",
+                    zh: "高性能低排放的優質 AI 92, K5 汽油。 特點： - 提高燃油效率 - 減少發動機積碳 - 適用於現代汽油發動機 建議用途： - 乘用車 - 摩托車和小型車輛"
                 }
             },
             {
-                id: 2,
+                id: 95,
                 name: {
-                    en: "Petrol (Gasoline) 95",
-                    zh: "汽油95號"
+                    en: "BENZIN AI 95, K5",
+                    zh: "汽油 AI 95, K5"
                 },
                 price: null,
                 category: "petroleum",
-                image: null,
+                image: ai95,
                 description: {
-                    en: "Premium-grade gasoline with high octane rating. Features: - Enhances engine performance - Reduces carbon deposits - Suitable for modern gasoline engines Recommended use: - Passenger cars and motorcycles - Performance vehicles",
-                    zh: "高辛烷值的優質汽油。 特點： - 增強發動機性能 - 減少碳沉積 - 適用於現代汽油發動機 建議用途： - 乘用車和摩托車 - 高性能車輛"
+                    en: "High-performance AI 95, K5 gasoline designed for superior engine efficiency. Features: - High octane rating - Improved combustion - Ideal for high-performance vehicles Recommended use: - Sports cars - High-performance and turbocharged engines",
+                    zh: "高性能 AI 95, K5 汽油，旨在提高發動機效率。 特點： - 高辛烷值 - 改善燃燒效率 - 適用於高性能車輛 建議用途： - 跑車 - 高性能和渦輪增壓發動機"
                 }
             },
             {
-                id: 3,
+                id: 96,
                 name: {
-                    en: "Kerosene",
-                    zh: "煤油"
+                    en: "DIZEL K5",
+                    zh: "柴油 K5"
                 },
                 price: null,
                 category: "petroleum",
-                image: null,
+                image: dizel,
                 description: {
-                    en: "Multipurpose kerosene fuel used for heating and lighting. Features: - Clean combustion - Low smoke emission - Ideal for household and industrial use Recommended use: - Heating systems and lamps - Aviation and industrial applications",
-                    zh: "多用途煤油燃料，用於供暖和照明。 特點： - 清潔燃燒 - 低煙排放 - 適用於家庭和工業用途 建議用途： - 供暖系統和燈具 - 航空和工業應用"
-                }
-            },
-            {
-                id: 4,
-                name: {
-                    en: "Liquefied Petroleum Gas (LPG)",
-                    zh: "液化石油氣 (LPG)"
-                },
-                price: null,
-                category: "petroleum",
-                image: null,
-                description: {
-                    en: "Versatile LPG for cooking, heating, and automotive use. Features: - Clean and efficient fuel - Low environmental impact - Suitable for residential and commercial applications Recommended use: - Household and restaurant cooking - Heating and automotive fuel",
-                    zh: "多用途液化石油氣 (LPG)，用於烹飪、供暖和汽車用途。 特點： - 清潔高效燃料 - 環保影響低 - 適用於住宅和商業用途 建議用途： - 家庭和餐館烹飪 - 供暖和汽車燃料"
-                }
-            },
-            {
-                id: 5,
-                name: {
-                    en: "Heavy Fuel Oil",
-                    zh: "重燃料油"
-                },
-                price: null,
-                category: "petroleum",
-                image: null,
-                description: {
-                    en: "Industrial-grade fuel oil for power generation and marine engines. Features: - High calorific value - Cost-effective energy source - Suitable for large-scale energy production Recommended use: - Power plants and large industrial boilers - Marine transportation and shipping",
-                    zh: "工業級燃料油，用於發電和船舶發動機。 特點： - 高熱值 - 成本效益高 - 適用於大規模能源生產 建議用途： - 發電廠和大型工業鍋爐 - 船舶運輸"
+                    en: "Ultra-low sulfur diesel fuel (K5) for modern diesel engines. Features: - Cleaner combustion - Reduced environmental impact - Improved engine longevity Recommended use: - Commercial and heavy-duty vehicles - Industrial and agricultural machinery",
+                    zh: "超低硫柴油 (K5)，適用於現代柴油發動機。 特點： - 更清潔的燃燒 - 降低環境影響 - 提高發動機壽命 建議用途： - 商業和重型車輛 - 工業和農業機械"
                 }
             }
         ]
