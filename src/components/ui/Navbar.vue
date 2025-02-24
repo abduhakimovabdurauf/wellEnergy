@@ -4,7 +4,10 @@
       <!-- Logo -->
       <router-link to="/" class="logo">
         <img src="@/assets/logo.png" alt="">
-        Well <br> Energy
+        <p>
+          Well Energy
+          <span>Chem Oil Machinery Limited</span>
+        </p>
       </router-link>
 
       <!-- Navbar -->
@@ -18,18 +21,21 @@
               <i class='bx bxs-phone'></i> {{ t('phone') }}
             </a>
           </li>
+          <li>
+            <button class="cart-btn">
+              <select v-model="currentLocale">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+              </select>
+              <router-link style="color: white;font-size: 28px" to="/cart">
+                <i class="bx bx-cart"></i>
+              </router-link>
+            </button>
+          </li>
         </ul>
       </nav>
 
-      <button class="cart-btn">
-        <select v-model="currentLocale">
-          <option value="en">English</option>
-          <option value="zh">中文</option>
-        </select>
-        <router-link style="color: white;" to="/cart">
-          <i class="bx bx-cart"></i>
-        </router-link>
-      </button>
+
 
       <button class="menu-btn" @click="toggleMenu">
         <i class="bx" :class="isOpen ? 'bx-x' : 'bx-menu'"></i>
@@ -43,13 +49,18 @@
       <li><a href="#">{{ t('product') }}</a></li>
       <li><a href="#">{{ t('contact') }}</a></li>
       <li><a href="tel:+85235807372">{{ t('phone') }}</a></li>
+      <li>
+        <button class="cart-btn">
+          <select v-model="currentLocale">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+          </select>
+          <router-link style="color: white;font-size: 28px" to="/cart">
+            <i class="bx bx-cart"></i>
+          </router-link>
+        </button>
+      </li>
     </ul>
-
-    <button class="cart-btn">
-      <router-link style="color: white;" to="/cart">
-        <i class="bx bx-cart"></i>
-      </router-link>
-    </button>
   </section>
 </template>
 
@@ -104,18 +115,29 @@ const toggleMenu = () => {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  justify-content: start;
+
+  color: #fff;
+}
+
+.logo p {
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 30px;
   display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
+  flex-direction: column;
 }
 
 .logo img {
   width: 80px;
   height: 80px;
+}
+
+.logo span {
+  font-size: .8rem;
 }
 
 .phone_number {
@@ -124,9 +146,10 @@ const toggleMenu = () => {
 
 .nav ul {
   list-style: none;
-  display: flex;
   gap: 25px;
   padding: 0;
+  display: flex;
+  align-items: center;
   margin: 0;
 }
 
@@ -140,6 +163,10 @@ const toggleMenu = () => {
 
 .nav ul li a:hover {
   color: #ffc300;
+}
+.cart-btn {
+  display: flex;
+  align-items: center;
 }
 
 .cart-btn, .menu-btn {
@@ -167,7 +194,7 @@ const toggleMenu = () => {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .menu-btn {
     display: block;
   }
@@ -201,6 +228,12 @@ const toggleMenu = () => {
 
   .mobile-menu ul li {
     margin: 10px 0;
+  }
+
+  .cart-btn {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   .mobile-menu ul li a {
