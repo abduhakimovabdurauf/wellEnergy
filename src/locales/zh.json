@@ -3,6 +3,7 @@
   "home": "主页",
   "product": "产品",
   "contact": "联系",
+  "aboutTitle": "關於我們",
   "phone": "+852 35807372",
   "popularProducts": "热门产品",
   "viewAllProducts": "查看所有产品",
@@ -81,6 +82,22 @@
     "remove": "移除",
     "total": "总计",
     "emptyMessage": "您的购物车是空的。"
+  },
+  "aboutPage": {
+    "title": "关于我们",
+    "description": "我们提供肥料、燃料以及用于回收金、银和铜的先进机械设备。我们的目标是以最高的质量提供可靠的解决方案。",
+    "fertilizers": {
+      "title": "肥料",
+      "text": "高质量的矿物和有机肥料，提升土壤肥力。"
+    },
+    "fuels": {
+      "title": "燃料",
+      "text": "适用于工业和农业的环保燃料。"
+    },
+    "machines": {
+      "title": "回收设备",
+      "text": "现代化设备，高效处理金、银和铜。"
+    }
   }
 
 

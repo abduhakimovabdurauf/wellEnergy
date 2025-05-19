@@ -3,6 +3,7 @@
   "home": "Home",
   "product": "Products",
   "contact": "Contact",
+  "aboutTitle": "About Us",
   "phone": "+852 35807372",
   "popularProducts": "Popular Products",
   "viewAllProducts": "View All Products",
@@ -81,6 +82,22 @@
     "remove": "Remove",
     "total": "Total",
     "emptyMessage": "Your cart is empty."
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "description": "We provide fertilizers, fuels, and advanced machinery for recycling gold, silver, and copper. Our goal is to offer reliable solutions with the highest quality.",
+    "fertilizers": {
+      "title": "Fertilizers",
+      "text": "High-quality mineral and organic fertilizers to boost soil fertility."
+    },
+    "fuels": {
+      "title": "Fuels",
+      "text": "Eco-friendly fuels for industrial and agricultural use."
+    },
+    "machines": {
+      "title": "Recycling Machines",
+      "text": "Modern equipment for processing gold, silver, and copper efficiently."
+    }
   }
 
 

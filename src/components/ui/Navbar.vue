@@ -14,6 +14,7 @@
       <nav :class="['nav', { 'open': isOpen }]">
         <ul>
           <li><router-link to="/" class="animated-link">{{ t('home') }}</router-link></li>
+          <li><router-link to="/about" class="animated-link">{{ t('aboutTitle') }}</router-link></li>
           <li><router-link to="/products" class="animated-link">{{ t('product') }}</router-link></li>
           <li><router-link to="/contact" class="animated-link">{{ t('contact') }}</router-link></li>
           <li>

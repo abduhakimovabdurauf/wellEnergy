@@ -16,6 +16,11 @@ import img12 from "@/assets/products/fertilizers/12.png";
 import ai92 from "@/assets/products/petroleum/ai92.png";
 import ai95 from "@/assets/products/petroleum/ai95.png";
 import dizel from "@/assets/products/petroleum/dizel.png";
+
+
+import gold from "@/assets/products/refiner/1.webp"
+import silver from "@/assets/products/refiner/2.webp"
+import cooper from "@/assets/products/refiner/3.webp"
 const state = {
     categories: {
         fertilizers: [
@@ -232,6 +237,39 @@ const state = {
                     zh: "超低硫柴油 (K5)，適用於現代柴油發動機。 特點： - 更清潔的燃燒 - 降低環境影響 - 提高發動機壽命 建議用途： - 商業和重型車輛 - 工業和農業機械"
                 }
             }
+        ],
+        refiners: [
+            {
+              id: 100,
+              name: {
+                en: "Gold refining machine",
+                zh: "Gold refining machine"
+              },
+              price: null,
+              category: "refiner",
+              image: gold,
+            },
+            {
+              id: 101,
+              name: {
+                en: "Silver refining machine",
+                zh: "Silver refining machine"
+              },
+              price: null,
+              category: "refiner",
+              image: silver,
+            },
+            {
+              id: 102,
+              name: {
+                en: "Cooper refining machine",
+                zh: "Cooper refining machine"
+              },
+              price: null,
+              category: "refiner",
+              image: cooper,
+            },
+            
         ]
     },
 };

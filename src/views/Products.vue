@@ -46,6 +46,17 @@
               </div>
             </div>
 
+            <div class="category-grid">
+              <div
+                  @click="selectedCategory = 'refiner'"
+                  :class="{ active: selectedCategory === 'refiner' }"
+                  class="category-card"
+                  style="margin-top: 20px"
+              >
+                refiners
+              </div>
+            </div>
+
             <!-- Price Range Filter -->
             <h3>{{ t("products.priceRange") }}</h3>
             <div class="price-filter">
