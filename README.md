@@ -44,9 +44,6 @@ src/
 ├── views/
 └── App.vue
 
-bash
-Copy
-Edit
 
 
 ## 📦 Installation
