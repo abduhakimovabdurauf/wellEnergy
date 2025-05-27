@@ -49,7 +49,7 @@ src/
 ## 📦 Installation
 
 # Clone the repository
-git clone https://github.com/your-username/ogit-equipment-website.git
+git clone https://github.com/abduhakimovabdurauf/wellEnergy.git
 
 # Navigate to the project directory
 cd ogit-equipment-website
