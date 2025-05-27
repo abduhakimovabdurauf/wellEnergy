@@ -2,6 +2,7 @@
 
 A responsive and professional website for selling **oil, gas, fuel, and industrial processing equipment**. This project showcases a modern design, product catalog, and seamless user experience for businesses in the energy and industrial sector.
 
+
 ## 🌐 Overview
 
 This platform allows customers to:
@@ -11,6 +12,7 @@ This platform allows customers to:
 - Learn about product specifications
 - View categories like oil refining, fuel stations, gas cylinders, compressors, and more
 
+
 ## 🛠️ Tech Stack
 
 - **Vue.js 3** (Composition API)
@@ -18,6 +20,7 @@ This platform allows customers to:
 - **Vue Router** – for navigation
 - **Axios** – for fetching product data
 - **i18n** – for multi-language support (EN / RU)
+
 
 ## 🚀 Features
 
@@ -27,6 +30,7 @@ This platform allows customers to:
 - 📞 Contact form integration
 - 📱 Fully responsive design
 - ⚙️ Admin-ready structure for future integration (CMS or panel)
+
 
 ## 📁 Project Structure
 
@@ -43,6 +47,7 @@ src/
 bash
 Copy
 Edit
+
 
 ## 📦 Installation
 
